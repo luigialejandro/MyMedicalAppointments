@@ -1,32 +1,37 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
+public class Doctor extends User {
     //atributos
-    static int id = 0; //Autoincrementado
-    private String name;
-    private String email;
+
     private String speciality;
 
-    Doctor(){
-        System.out.println("Construyendo el Objeto Doctor");
-    }
-
-    Doctor(String name, String speciality){
+    Doctor(String name, String email){
+        super(name,email);
         System.out.println("El nombre del Doctor asignado es: " +name);
-        id++;
-        this.name = name;
+        //id++;  //este identificador se usaba antes
         this.speciality = speciality;
     }
 
-    //Comportamientos
-    public void showName(){
-        System.out.println(name);
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void showId(){
-        System.out.println("ID Doctor: " + id);
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
+
+    //quito esta alternativa de constructor, pues acabo de aplicar herencia
+    //Doctor(){
+    //    System.out.println("Construyendo el Objeto Doctor");
+    //}
+
+
+
+    //Comportamientos
+
+
+
 
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public void addAvailableAppointment(Date date, String time){
